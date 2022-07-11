@@ -1,9 +1,3 @@
-import Daemon from './Daemon'
-import Bowman  from './Bowman'
-import Magician from './Magician'
-import Swordsman from './Swordsman'
-import Undead from './Undead'
-import Zombie from './Zombie'
 
 export default class Character {
       constructor(name, type) {
@@ -14,6 +8,7 @@ export default class Character {
           this.attack
           this.defence
       }
+
       get name() {
           return this._name
       }
@@ -23,38 +18,19 @@ export default class Character {
           }
            this._name = newName
       }
+
       get type() {
           return this._type
       }
       set type(newType) {
-          if(newType === 'Bowman') {
-              this._type = newType
-              this.attack = 25
-              this.defence = 25
-          } else if(newType === 'Swordsman'){
+        let pers = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie']
+          if(pers.includes(newType))  {
             this._type = newType
-            this.attack = 40
-            this.defence = 10
-          } else if (newType === 'Magician') {
-            this._type = newType
-            this.attack = 10
-            this.defence = 40
-          } else if (newType === 'Undead') {
-            this._type = newType
-            this.attack = 25
-            this.defence = 25
-          } else if (newType === 'Zombie') {
-            this._type = newType
-            this.attack = 40
-            this.defence = 10
-          } else if (newType === ' Daemon') {
-            this._type = newType
-            this.attack = 10
-            this.defence = 40
           } else {
             return new Error()
           }
-      }
+        }
+      
       levelUp() {
         if(this.health <= 0) {
           return new error('нельзя повысить уровень умершего')
@@ -72,4 +48,3 @@ export default class Character {
         }
       }
   }
-  const sasa = new Character('sasas', 'Daemon')

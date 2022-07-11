@@ -9,8 +9,16 @@ import Character from '..//js/Character'
 
 
 
-test('Testing Naming', () => {
-const pers = new Bowman('1', 'Bowman')
-    expect(pers()).toBe('Erorr naming')
+test('Testing Bowman', () => {
+    const bowman = new Bowman('Baiden', 'Bowman')
+    const expected = {
+        name: 'Baiden',
+        type: 'Bowman',
+        health: 100,
+        level: 1,
+        attack: 25,
+        defence: 25
+    }
+    expect(bowman).toEqual(expected)
 }
 )
